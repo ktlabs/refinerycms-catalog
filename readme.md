@@ -1,4 +1,4 @@
-# Portfolio plugin for [RefineryCMS](http://www.refinerycms.com) ([Github](http://github.com/resolve/refinerycms))
+# Catalog plugin derived from Portfolio plugin for [RefineryCMS](http://www.refinerycms.com) ([Github](http://github.com/resolve/refinerycms))
 
 By: [Resolve Digital](http://www.resolvedigital.com)
 
@@ -13,11 +13,11 @@ Ensure you have created your application's database before adding this engine (w
 
 Open your ``Gemfile`` and add this line to the bottom:
 
-    gem 'refinerycms-portfolio', '~> 0.9.9'
+    gem 'refinerycms-catalog', '~> 0.9.9'
 
 Now run ``bundle install`` and once bundler has installed the gem run:
 
-    rails generate refinerycms_portfolio
+    rails generate refinerycms_catalog
     rake db:migrate
 
 Now, restart your web server and enjoy.
@@ -28,3 +28,4 @@ The standard setup for portfolios is single-level.
 If you need a multi-level portfolio where you have "categories" of portfolio
 items you can switch to a multi level setup by changing the Refinery Setting for
 ``Multi Level Portfolio`` to true.
+

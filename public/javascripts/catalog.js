@@ -1,7 +1,7 @@
-var portfolio_entry_url = null;
+var catalog_entry_url = null;
 
 reset_functionality = function() {
-  $("#portfolio_images").sortable({
+  $("#catalog_images").sortable({
     'tolerance': 'pointer'
     , 'placeholder': 'placeholder'
     , 'cursor': 'drag'
@@ -9,7 +9,7 @@ reset_functionality = function() {
     , stop: reindex_images
   });
 
-  $('#content #portfolio_images li:not(.empty)').each(function(index, li) {
+  $('#content #catalog_images li:not(.empty)').each(function(index, li) {
     $(this).hover(function(e){
       if ((image_actions = $(this).find('.image_actions')).length == 0) {
         image_actions = $("<div class='image_actions'></div>");
@@ -33,7 +33,7 @@ reset_functionality = function() {
 }
 
 reindex_images = function() {
-  $('#portfolio_images li input:hidden').each(function(i, input){
+  $('#catalog_images li input:hidden').each(function(i, input){
     // make the image's name consistent with its position.
     parts = $(input).attr('name').split(']');
     parts[1] = ('[' + i)
@@ -45,7 +45,7 @@ reindex_images = function() {
 }
 
 image_added = function(image) {
-  last_portfolio_entry_image_id = "";
+  last_catalog_entry_image_id = "";
   new_list_item = (current_list_item = $('li.empty')).clone();
   image_id = $(image).attr('id').replace('image_', '');
   current_list_item.find('input:hidden').val(image_id);
@@ -72,7 +72,7 @@ image_added = function(image) {
 
   current_list_item.attr('id', 'image_' + image_id).removeClass('empty');
 
-  new_list_item.appendTo($('#portfolio_images'));
+  new_list_item.appendTo($('#catalog_images'));
   reset_functionality();
 }
 
@@ -80,16 +80,16 @@ $(document).ready(function() {
   $('h1#body_content_page_title').addClass('clearfix');
   reset_functionality();
 
-  $("ul#portfolio_images li.other a img").fadeTo(0, 0.3);
+  $("ul#catalog_images li.other a img").fadeTo(0, 0.3);
 
-  $('#portfolio_entry_to_param').change(function() {
-    window.location = portfolio_entry_url + this.value;
+  $('#catalog_entry_to_param').change(function() {
+    window.location = catalog_entry_url + this.value;
   });
 
-  if ((tabs = $('.edit_portfolio_entry #page-tabs, .new_portfolio_entry #page-tabs')).length > 0) {
+  if ((tabs = $('.edit_catalog_entry #page-tabs, .new_catalog_entry #page-tabs')).length > 0) {
     page_options.init(false, '', '');
-    $('a[href*=portfolio_image_picker]').click(function(){
-      if (!(picker = $('#portfolio_image_picker')).data('size-applied')){
+    $('a[href*=catalog_image_picker]').click(function(){
+      if (!(picker = $('#catalog_image_picker')).data('size-applied')){
         wym_box = $('.page_part:first .wym_box');
         iframe = $('.page_part:first iframe');
         picker.css({
@@ -109,19 +109,19 @@ $(document).ready(function() {
   }
 
   var clicked_on = null;
-  $("ul#portfolio_images li a").click(function(e) {
+  $("ul#catalog_images li a").click(function(e) {
     if (!$(this).hasClass('selected')) {
       clicked_on = $(this);
       $.get($(this).attr('href'), function(data, textStatus) {
         if (textStatus == "success") {
-          $('#portfolio_main_image').before(data).remove();
+          $('#catalog_main_image').before(data).remove();
 
-          $('ul#portfolio_images li.selected').removeClass('selected').addClass('other');
+          $('ul#catalog_images li.selected').removeClass('selected').addClass('other');
 
           clicked_on.parent().removeClass('other').addClass('selected');
           clicked_on.find('img').fadeTo(0, 1);
 
-          $("ul#portfolio_images li.other a img").fadeTo(0, 0.3);
+          $("ul#catalog_images li.other a img").fadeTo(0, 0.3);
         }
       });
     }
@@ -129,3 +129,4 @@ $(document).ready(function() {
     e.preventDefault();
   });
 });
+
