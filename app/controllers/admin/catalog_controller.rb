@@ -1,8 +1,9 @@
-class Admin::PortfolioController < Admin::BaseController
+class Admin::CatalogController < Admin::BaseController
 
-  crudify :portfolio_entry,
+  crudify :catalog_entry,
           :order => 'lft ASC',
           :conditions => {:parent_id => nil},
           :sortable => true
 
 end
+
