@@ -1,11 +1,11 @@
 require 'refinery'
 
 module Refinery
-  module Portfolio
+  module Catalog
 
     class << self
       def multi_level?
-        RefinerySetting.table_exists? and RefinerySetting.find_or_set(:multi_level_portfolio, false, {
+        RefinerySetting.table_exists? and RefinerySetting.find_or_set(:multi_level_catalog, false, {
           :callback_proc_as_string => %q{::ActionController::Routing::Routes.reload!},
           :restricted => true
         })
@@ -19,16 +19,17 @@ module Refinery
 
       config.after_initialize do
         Refinery::Plugin.register do |plugin|
-          plugin.name = "portfolio"
-          plugin.version = ::Refinery::Portfolio.version
-          plugin.menu_match = /admin\/portfolio(_entries)?/
+          plugin.name = "catalog"
+          plugin.version = ::Refinery::Catalog.version
+          plugin.menu_match = /admin\/catalog(_entries)?/
           plugin.activity = {
-            :class => PortfolioEntry
+            :class => CatalogEntry
           }
-        end unless Refinery::Plugins.registered.names.include?('portfolio')
+        end unless Refinery::Plugins.registered.names.include?('catalog')
       end
     end
   end
 end
 
-require File.expand_path('../portfolio', __FILE__)
+require File.expand_path('../catalog', __FILE__)
+
