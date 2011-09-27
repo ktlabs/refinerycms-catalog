@@ -1,11 +1,11 @@
 require 'rails/generators/migration'
 
-class RefinerycmsPortfolioGenerator < Rails::Generators::NamedBase
+class RefinerycmsCatalogGenerator < Rails::Generators::NamedBase
 
   include Rails::Generators::Migration
 
   source_root File.expand_path('../templates', __FILE__)
-  argument :name, :type => :string, :default => 'portfolio'
+  argument :name, :type => :string, :default => 'catalog'
 
   def generate
     Dir.glob(File.expand_path('../templates/**/**', __FILE__)).each do |path|
@@ -57,3 +57,4 @@ module ActiveRecord
     end
   end
 end
+
