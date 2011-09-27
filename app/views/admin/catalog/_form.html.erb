@@ -1,28 +1,28 @@
 <% if Refinery.version < '0.9.9' %>
-  <%= stylesheet_link_tag 'portfolio' %>
-  <%= javascript_include_tag 'portfolio' %>
+  <%= stylesheet_link_tag 'catalog' %>
+  <%= javascript_include_tag 'catalog' %>
 <% else %>
-  <% content_for :javascripts, javascript_include_tag('portfolio') %>
-  <% content_for :stylesheets, stylesheet_link_tag('portfolio') %>
+  <% content_for :javascripts, javascript_include_tag('catalog') %>
+  <% content_for :stylesheets, stylesheet_link_tag('catalog') %>
 <% end %>
 
-<%= form_for([:admin, @portfolio_entry]) do |f| %>
+<%= form_for([:admin, @catalog_entry]) do |f| %>
   <%= render :partial => "/shared/admin/error_messages",
              :locals => {
                :object => f.object,
                :include_object_name => true
              }  %>
-  <div id='portfolio_body' class='field clearfix'>
+  <div id='catalog_body' class='field clearfix'>
     <%= f.required_label t('.title') %>
     <%= f.text_field :title, :class => "larger widest" %>
   </div>
-  <% unless RefinerySetting.find_or_set(:portfolio_has_no_index, true)%>
+  <% unless RefinerySetting.find_or_set(:catalog_has_no_index, true)%>
     <div class='field'>
       <%= f.label :image -%>
       <%= render :partial => "/shared/admin/image_picker", :locals => {
         :f => f,
         :field => :title_image_id,
-        :image => @portfolio_entry.title_image,
+        :image => @catalog_entry.title_image,
         :toggle_image_display => false
       } %>
     </div>
@@ -34,7 +34,7 @@
           <%= link_to t('.content'), '#page_part_content'%>
         </li>
         <li class='ui-state-default'>
-          <%= link_to t('.images'), '#portfolio_image_picker'%>
+          <%= link_to t('.images'), '#catalog_image_picker'%>
         </li>
       </ul>
     </div>
@@ -42,7 +42,7 @@
       <div id='page_part_content' class='page_part'>
         <%= f.text_area :body, :class => "wymeditor widest", :rows => 7 %>
       </div>
-      <div class='page_part wym_skin_refinery' id='portfolio_image_picker'>
+      <div class='page_part wym_skin_refinery' id='catalog_image_picker'>
         <div class='wym_area_top'>
           <span class='clearfix label_inline_with_link'>
             <%= link_to t('.add_another_image').html_safe,
@@ -54,7 +54,7 @@
           </span>
         </div>
         <div class='wym_box field images_field'>
-          <ul id='portfolio_images' class='clearfix portfolio_entry_images'>
+          <ul id='catalog_images' class='clearfix catalog_entry_images'>
             <%= f.fields_for :images do |image_form| %>
               <li id='image_<%= image_form.object.id %>'>
                 <%= image_form.hidden_field :id %>
@@ -62,17 +62,17 @@
               </li>
             <% end %>
             <li class='empty'>
-              <%= hidden_field_tag "portfolio_entry[images_attributes][#{@portfolio_entry.images.size}][id]" %>
+              <%= hidden_field_tag "catalog_entry[images_attributes][#{@catalog_entry.images.size}][id]" %>
             </li>
           </ul>
         </div>
       </div>
     </div>
   </div>
-  <% if (nested_portfolios = nested_set_options(PortfolioEntry, @portfolio_entry) {|i| "#{'-' * i.level} #{i.title}" }).present? %>
+  <% if (nested_catalogs = nested_set_options(CatalogEntry, @catalog_entry) {|i| "#{'-' * i.level} #{i.title}" }).present? %>
     <div class='field'>
       <%= f.label t('.parent') %>
-      <%= f.select :parent_id, nested_portfolios, :include_blank => true %>
+      <%= f.select :parent_id, nested_catalogs, :include_blank => true %>
     </div>
   <% end %>
 
@@ -83,3 +83,4 @@
              } -%>
 
 <% end %>
+

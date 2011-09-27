@@ -1,5 +1,6 @@
 <ul id='sortable_list'>
-  <%= render :partial => 'list', :collection => @portfolio_entries %>
+  <%= render :partial => 'list', :collection => @catalog_entries %>
 </ul>
 <%= render :partial => "/shared/admin/sortable_list",
            :locals => {:continue_reordering => (defined?(continue_reordering) ? continue_reordering : true)} %>
+

@@ -1,0 +1,15 @@
+<% content_for :body_content_title do -%>
+  Catalogs
+<% end -%>
+
+<% content_for :body_content_left do -%>
+  <% @catalog_entries.each do | catalog | -%>
+    <span>
+      <%= link_to raw("#{image_fu catalog.title_image, '200x200' unless catalog.title_image.nil?} #{catalog.title}"),
+                  catalog_path(catalog) %>
+    </span>
+  <% end -%>
+<% end -%>
+
+<%= render :partial => '/shared/content_page' -%>
+
