@@ -1,5 +1,7 @@
 class CatalogEntry < ActiveRecord::Base
   belongs_to :title_image, :class_name => 'Image'
+  belongs_to :catalog_type
+  has_many :entry_attributes
 
   validates :title, :presence => true
 
