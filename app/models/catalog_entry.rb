@@ -1,4 +1,4 @@
-class PortfolioEntry < ActiveRecord::Base
+class CatalogEntry < ActiveRecord::Base
   belongs_to :title_image, :class_name => 'Image'
 
   validates :title, :presence => true
@@ -9,8 +9,8 @@ class PortfolioEntry < ActiveRecord::Base
   default_scope :order => 'lft ASC'
   acts_as_indexed :fields => [:title, :image_titles, :image_names]
 
-  has_many :images_portfolio_entries
-  has_many :images, :through => :images_portfolio_entries, :order => 'images_portfolio_entries.position ASC'
+  has_many :images_catalog_entries
+  has_many :images, :through => :images_catalog_entries, :order => 'images_catalog_entries.position ASC'
   accepts_nested_attributes_for :images, :allow_destroy => false
 
   def images_attributes=(data)
@@ -22,11 +22,11 @@ class PortfolioEntry < ActiveRecord::Base
       end
     }.compact
   end
-  
+
   def image_titles
     self.images.collect{|i| i.title}
   end
-  
+
   def image_names
     self.images.collect{|i| i.image_name}
   end
@@ -34,3 +34,4 @@ class PortfolioEntry < ActiveRecord::Base
   alias_attribute :content, :body
 
 end
+
