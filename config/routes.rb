@@ -25,9 +25,15 @@ Refinery::Application.routes.draw do
   match '/catalog/:id', :as => 'catalog', :to => 'catalog#show'
 
   scope(:path => 'refinery', :as => 'admin', :module => 'admin') do
-    resources :catalog, :as => :catalog_entries do
-      collection do
-        post :update_positions
+    resources :catalog, :as => :catalog_types do
+      resources :types, :as => :entry_attribute_types do
+        resources :values, :as => :entry_attribute_type_values
+      end
+      resources :entries, :as => :catalog_entries do
+        resources :attributes, :as => :entry_attributes
+        collection do
+          post :update_positions
+        end
       end
     end
   end

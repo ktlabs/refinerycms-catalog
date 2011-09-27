@@ -7,5 +7,7 @@ class CatalogType < ActiveRecord::Base
   validates_presence_of :name
   validates_uniqueness_of :name
 
+  # call to gems included in refinery.
+  has_friendly_id :name, :use_slug => true
 end
 
