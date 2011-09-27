@@ -1,31 +1,31 @@
-require File.expand_path("../../lib/portfolio.rb", __FILE__)
+require File.expand_path("../../lib/catalog.rb", __FILE__)
 
 Refinery::Application.routes.draw do
-  match '/portfolio', :as => 'portfolio', :to => 'portfolio#index'
+  match '/catalog', :as => 'catalog', :to => 'catalog#index'
 
   # Make sure you restart your web server after changing the multi level setting.
-  if ::Refinery::Portfolio.multi_level?
-    match "/portfolio/:id/projects/:portfolio_id/:image_id",
-          :as => :portfolio_image,
-          :to => "portfolio#show"
+  if ::Refinery::Catalog.multi_level?
+    match "/catalog/:id/projects/:catalog_id/:image_id",
+          :as => :catalog_image,
+          :to => "catalog#show"
 
-    match "/portfolio/:id/projects/:portfolio_id",
-          :as => :portfolio_project,
-          :to => "portfolio#show"
+    match "/catalog/:id/projects/:catalog_id",
+          :as => :catalog_project,
+          :to => "catalog#show"
   else
-    match "/portfolio/:id/:image_id",
-          :as => :portfolio_image,
-          :to => "portfolio#show"
+    match "/catalog/:id/:image_id",
+          :as => :catalog_image,
+          :to => "catalog#show"
 
-    match "/portfolio/:id",
-          :as => :portfolio_project,
-          :to => "portfolio#show"
+    match "/catalog/:id",
+          :as => :catalog_project,
+          :to => "catalog#show"
   end
 
-  match '/portfolio/:id', :as => 'portfolio', :to => 'portfolio#show'
+  match '/catalog/:id', :as => 'catalog', :to => 'catalog#show'
 
   scope(:path => 'refinery', :as => 'admin', :module => 'admin') do
-    resources :portfolio, :as => :portfolio_entries do
+    resources :catalog, :as => :catalog_entries do
       collection do
         post :update_positions
       end
@@ -33,3 +33,4 @@ Refinery::Application.routes.draw do
   end
 
 end
+
