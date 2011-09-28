@@ -56,4 +56,13 @@ en:
         add_another_image: "Добавить другое изображение"
         content: Содержимое
         parent: Родитель
+    attributes:
+      form:
+        value: Значение
+        attribute_type: Атрибут
+      index:
+        no_attributes_yet: 'Ещё нет ни одного атрибута. Нажмите "Добавить новое значение" что бы добавить ваше первое значение.'
+      list:
+        view_live: "Просмотреть записи <br/><em>(открыть в новом окне)</em>"
+        edit_this_entry: "Редактировать эту запись"
 

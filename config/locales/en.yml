@@ -56,4 +56,13 @@ en:
         add_another_image: "Add Another Image"
         content: Content
         parent: Parent
+    attributes:
+      form:
+        value: Value
+        attribute_type: Attribute
+      index:
+        no_attributes_yet: 'There is no attributes yet. Click "Add new Value" to add your first value.'
+      list:
+        view_live: "View this entry live <br/><em>(opens in a new window)</em>"
+        edit_this_entry: "Edit this entry"
 

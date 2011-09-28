@@ -1,0 +1,31 @@
+<% if Refinery.version < '0.9.9' %>
+  <%= stylesheet_link_tag 'catalog' %>
+  <%= javascript_include_tag 'catalog' %>
+<% else %>
+  <% content_for :javascripts, javascript_include_tag('catalog') %>
+  <% content_for :stylesheets, stylesheet_link_tag('catalog') %>
+<% end %>
+
+<%= form_for [:admin, @catalog_type, @catalog_entry, @entry_attribute] do |f| %>
+  <%= render :partial => "/shared/admin/error_messages",
+             :locals => {
+               :object => f.object,
+               :include_object_name => true
+             }  %>
+  <div id='catalog_body' class='field clearfix'>
+    <%= f.required_label t('.attribute_type') %>
+    <%= f.select :entry_attribute_type_id %>
+  </div>
+  <div id='catalog_body' class='field clearfix'>
+    <%= f.required_label t('.value') %>
+    <%= f.select :entry_attribute_type_value_id %>
+  </div>
+
+  <%= render :partial => "/shared/admin/form_actions",
+             :locals => {
+               :f => f,
+               :continue_editing => true
+             } -%>
+
+<% end %>
+

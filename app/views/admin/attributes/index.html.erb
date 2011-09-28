@@ -1,0 +1,27 @@
+<div id='records'>
+  <% if searching? %>
+    <h2><%= t('shared.admin.search.results_for', :query => params[:search]) %></h2>
+  <% end %>
+  <% if @catalog_types.any? %>
+    <%= render :partial => 'list', :collection => @entry_attributes %>
+  <% else %>
+    <p>
+      <% unless searching? %>
+        <strong>
+          <%= t('.no_attributes_yet') %>
+        </strong>
+      <% else %>
+        <%= t('shared.admin.search.no_results') %>
+      <% end %>
+    </p>
+  <% end %>
+</div>
+<div id='actions'>
+  <ul>
+    <li>
+      <%= render :partial => "/shared/admin/search",
+                 :locals => {:url => admin_entry_attributes_url} %>
+    </li>
+  </ul>
+</div>
+

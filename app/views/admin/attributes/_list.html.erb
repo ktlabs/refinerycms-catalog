@@ -1,0 +1,12 @@
+<li class='clearfix' id="<%= dom_id(list) -%>">
+  <div class='clearfix'>
+    <span class='actions'>
+      <%= link_to refinery_icon_tag('application_go.png'), attribute_url(list), :target => "_blank",
+                 :title => t('.view_live') %>
+      <%= link_to refinery_icon_tag('application_edit.png'), edit_admin_entry_attribute_path(list),
+                 :title => t('.edit_this_entry') %>
+    </span>
+    <%=h list.entry_attribute_type_value %>
+  </div>
+</li>
+
