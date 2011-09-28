@@ -20,10 +20,6 @@
     <%= f.label t('.active') %>
     <%= f.check_box :title, :class => "" %>
   </div>
-  <div id='catalog_body' class='field'>
-    <%= f.required_label t('.catalog_type') %>
-    <%= f.select :catalog_type_id %>
-  </div>
 
   <%= render :partial => "/shared/admin/form_actions",
              :locals => {
