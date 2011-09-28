@@ -1,0 +1,17 @@
+<li class='clearfix' id="<%= dom_id(list) -%>">
+  <div class='clearfix'>
+    <span class='actions'>
+      <%= link_to refinery_icon_tag('application_go.png'), value_url(list), :target => "_blank",
+                 :title => t('.view_live') %>
+      <%= link_to refinery_icon_tag('application_edit.png'), edit_admin_attribute_type_value_path(list),
+                 :title => t('.edit_this_entry') %>
+      <%= link_to refinery_icon_tag('delete.png'), admin_attribute_type_value_path(list),
+                 :class => "cancel confirm-delete",
+                 :title => t('.confirm_delete_entry_title'),
+                 :confirm => t('shared.admin.delete.message', :title => list.value),
+                 :method => :delete %>
+    </span>
+    <%=h list.value %>
+  </div>
+</li>
+

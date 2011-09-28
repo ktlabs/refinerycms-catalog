@@ -14,6 +14,16 @@ en:
         view_live: "View this entry live <br/><em>(opens in a new window)</em>"
         edit_this_entry: "Edit this entry"
         confirm_delete_entry_title: "Remove this entry forever"
+    values:
+      form:
+        value: Value
+      index:
+        no_attribute_type_values_yet: 'There is no attribute type values yet. Click "Add new Value" to add your first value.'
+        create_new_attribute_type_value: "Add New Value"
+      list:
+        view_live: "View this entry live <br/><em>(opens in a new window)</em>"
+        edit_this_entry: "Edit this entry"
+        confirm_delete_entry_title: "Remove this entry forever"
     types:
       form:
         name: Type

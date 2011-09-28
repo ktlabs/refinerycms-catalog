@@ -14,6 +14,16 @@ en:
         view_live: "Просмотреть записи <br/><em>(открыть в новом окне)</em>"
         edit_this_entry: "Редактировать эту запись"
         confirm_delete_entry_title: "Удалить эту запись"
+    values:
+      form:
+        value: Значение
+      index:
+        no_attribute_type_values_yet: 'Ещё нет ни одного значения типа. Нажмите "Добавить новое значение" что бы добавить ваше первое значение.'
+        create_new_attribute_type_value: "Добавить новое значение"
+      list:
+        view_live: "Просмотреть записи <br/><em>(открыть в новом окне)</em>"
+        edit_this_entry: "Редактировать эту запись"
+        confirm_delete_entry_title: "Удалить эту запись"
     types:
       form:
         name: Тип
