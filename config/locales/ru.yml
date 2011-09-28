@@ -7,6 +7,8 @@ en:
     catalog:
       form:
         name: Название каталога
+        attribute_types: Атрибуты
+        catalog_entries: Записи каталога
       index:
         no_catalog_types_yet: 'Ещё нет ни одного каталога. Нажмите "Добавить новый каталог" что бы добавить ваш первый каталог.'
         create_new_catalog_entry: "Добавить новый каталог"
@@ -29,6 +31,7 @@ en:
         name: Тип
         active: Активен
         catalog_type: Каталог
+        attribute_type_values: Значения типа
       index:
         no_attribute_types_yet: 'Ещё нет ни одного атрибута. Нажмите "Добавить новый атрибут" что бы добавить ваш первый атрибут.'
         create_new_attribute_type: "Добавить новый атрибут"
@@ -56,6 +59,7 @@ en:
         add_another_image: "Добавить другое изображение"
         content: Содержимое
         parent: Родитель
+        entry_attributes: Атрибуты
     attributes:
       form:
         value: Значение

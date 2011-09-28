@@ -76,6 +76,8 @@
     </div>
   <% end %>
 
+  <%= link_to t(".entry_atributes"), admin_entry_attributes_url, :class => "nothing_selected" %>
+
   <%= render :partial => "/shared/admin/form_actions",
              :locals => {
                :f => f,

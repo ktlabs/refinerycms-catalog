@@ -21,6 +21,8 @@
     <%= f.check_box :active, :class => "" %>
   </div>
 
+  <%= link_to t(".attribute_type_values"), admin_entry_attribute_type_values_url, :class => "nothing_selected" %>
+
   <%= render :partial => "/shared/admin/form_actions",
              :locals => {
                :f => f,

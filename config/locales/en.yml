@@ -7,6 +7,8 @@ en:
     catalog:
       form:
         name: Catalog name
+        attribute_types: Attribute types
+        catalog_entries: Catalog entries
       index:
         no_catalog_types_yet: 'There is no catalogs yet. Click "Add new Catalog" to add your first catalog.'
         create_new_catalog_entry: "Add New Catalog"
@@ -29,6 +31,7 @@ en:
         name: Type
         active: Active
         catalog_type: Catalog
+        attribute_type_values: Attribute type values
       index:
         no_attribute_types_yet: 'There is no attributes yet. Click "Add new Attribute" to add your first attribute.'
         create_new_attribute_type: "Add New Attribute"
@@ -56,6 +59,7 @@ en:
         add_another_image: "Add Another Image"
         content: Content
         parent: Parent
+        entry_attributes: Attributes
     attributes:
       form:
         value: Value
