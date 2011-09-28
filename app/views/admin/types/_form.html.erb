@@ -14,11 +14,11 @@
              }  %>
   <div id='catalog_body' class='field clearfix'>
     <%= f.required_label t('.name') %>
-    <%= f.text_field :title, :class => "larger widest" %>
+    <%= f.text_field :name, :class => "larger widest" %>
   </div>
   <div id='catalog_body' class='field clearfix'>
     <%= f.label t('.active') %>
-    <%= f.check_box :title, :class => "" %>
+    <%= f.check_box :active, :class => "" %>
   </div>
 
   <%= render :partial => "/shared/admin/form_actions",
