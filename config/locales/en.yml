@@ -5,6 +5,16 @@ en:
       description: Manage a catalog within Refinery CMS
   admin:
     catalog:
+      form:
+        name: Catalog name
+      index:
+        no_catalog_types_yet: 'There is no catalogs yet. Click "Add new Catalog" to add your first catalog.'
+        create_new_catalog_entry: "Add New Catalog"
+      list:
+        view_live: "View this entry live <br/><em>(opens in a new window)</em>"
+        edit_this_entry: "Edit this entry"
+        confirm_delete_entry_title: "Remove this entry forever"
+    entries:
       index:
         actions: Actions
         create_new_catalog_entry: "Add New Catalog Entry"

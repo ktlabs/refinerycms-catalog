@@ -5,6 +5,16 @@ en:
       description: Создайте свой каталог для Refinery CMS
   admin:
     catalog:
+      form:
+        name: Название каталога
+      index:
+        no_catalog_types_yet: 'Ещё нет ни одного каталога. Нажмите "Добавить новый каталог" что бы добавить ваш первый каталог.'
+        create_new_catalog_entry: "Добавить новый каталога"
+      list:
+        view_live: "Просмотреть записи <br/><em>(открыть в новом окне)</em>"
+        edit_this_entry: "Редактировать эту запись"
+        confirm_delete_entry_title: "Удалить эту запись"
+    entries:
       index:
         actions: Действия
         create_new_catalog_entry: "Добавить новую запись каталога"

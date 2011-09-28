@@ -1,0 +1,24 @@
+<%
+  branch = if list === @catalog_types.first
+    "branch_start"
+  elsif list === @catalog_types.last
+    "branch_end"
+  end
+-%>
+<li class='clearfix record<%= " #{branch}" %>' id="<%= dom_id(list) -%>">
+  <div class='clearfix'>
+    <span class='actions'>
+      <%= link_to refinery_icon_tag('application_go.png'), catalog_url(list), :target => "_blank",
+                 :title => t('.view_live') %>
+      <%= link_to refinery_icon_tag('application_edit.png'), edit_admin_catalog_type_path(list),
+                 :title => t('.edit_this_entry') %>
+      <%= link_to refinery_icon_tag('delete.png'), admin_catalog_type_path(list),
+                 :class => "cancel confirm-delete",
+                 :title => t('.confirm_delete_entry_title'),
+                 :confirm => t('shared.admin.delete.message', :title => list.name),
+                 :method => :delete %>
+    </span>
+    <%=h list.name %>
+  </div>
+</li>
+
