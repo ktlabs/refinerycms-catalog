@@ -23,7 +23,7 @@ protected
 
     # hack can be removed after issue is fixed
     next_migration_number = ActiveRecord::Generators::Base.next_migration_number(File.dirname(__FILE__))
-    path = path.gsub("migration_number", next_migration_number)
+    path = path.gsub(/^./, next_migration_number)
 
     # replace our local db path with the app one instead.
     path = path.gsub("/db/", "/../../../db/")
