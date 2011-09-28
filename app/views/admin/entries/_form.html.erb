@@ -6,7 +6,7 @@
   <% content_for :stylesheets, stylesheet_link_tag('catalog') %>
 <% end %>
 
-<%= form_for([:admin, @catalog_entry]) do |f| %>
+<%= form_for([:admin, @catalog_type, @catalog_entry]) do |f| %>
   <%= render :partial => "/shared/admin/error_messages",
              :locals => {
                :object => f.object,
