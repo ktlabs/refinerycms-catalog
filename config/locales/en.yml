@@ -14,6 +14,18 @@ en:
         view_live: "View this entry live <br/><em>(opens in a new window)</em>"
         edit_this_entry: "Edit this entry"
         confirm_delete_entry_title: "Remove this entry forever"
+    types:
+      form:
+        name: Type
+        active: Active
+        catalog_type: Catalog
+      index:
+        no_attribute_types_yet: 'There is no attributes yet. Click "Add new Attribute" to add your first attribute.'
+        create_new_attribute_type: "Add New Attribute"
+      list:
+        view_live: "View this entry live <br/><em>(opens in a new window)</em>"
+        edit_this_entry: "Edit this entry"
+        confirm_delete_entry_title: "Remove this entry forever"
     entries:
       index:
         actions: Actions

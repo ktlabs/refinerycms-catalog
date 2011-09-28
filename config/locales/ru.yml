@@ -9,7 +9,19 @@ en:
         name: Название каталога
       index:
         no_catalog_types_yet: 'Ещё нет ни одного каталога. Нажмите "Добавить новый каталог" что бы добавить ваш первый каталог.'
-        create_new_catalog_entry: "Добавить новый каталога"
+        create_new_catalog_entry: "Добавить новый каталог"
+      list:
+        view_live: "Просмотреть записи <br/><em>(открыть в новом окне)</em>"
+        edit_this_entry: "Редактировать эту запись"
+        confirm_delete_entry_title: "Удалить эту запись"
+    types:
+      form:
+        name: Тип
+        active: Активен
+        catalog_type: Каталог
+      index:
+        no_attribute_types_yet: 'Ещё нет ни одного атрибута. Нажмите "Добавить новый атрибут" что бы добавить ваш первый атрибут.'
+        create_new_attribute_type: "Добавить новый атрибут"
       list:
         view_live: "Просмотреть записи <br/><em>(открыть в новом окне)</em>"
         edit_this_entry: "Редактировать эту запись"
