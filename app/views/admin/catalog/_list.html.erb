@@ -1,11 +1,4 @@
-<%
-  branch = if list === @catalog_types.first
-    "branch_start"
-  elsif list === @catalog_types.last
-    "branch_end"
-  end
--%>
-<li class='clearfix record<%= " #{branch}" %>' id="<%= dom_id(list) -%>">
+<li class='clearfix' id="<%= dom_id(list) -%>">
   <div class='clearfix'>
     <span class='actions'>
       <%= link_to refinery_icon_tag('application_go.png'), catalog_url(list), :target => "_blank",
