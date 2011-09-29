@@ -17,9 +17,10 @@
     <%= f.text_field :name, :class => "larger widest" %>
   </div>
 
-  <%= link_to t(".attribute_types"), admin_catalog_type_entry_attribute_types_url, :class => "nothing_selected" %>
-
-  <%= link_to t(".catalog_entries"), admin_catalog_type_catalog_entries_url, :class => "nothing_selected" %>
+  <br/>
+  <%= link_to t(".attribute_types"), admin_catalog_type_entry_attribute_types_url(@catalog_type), :class => "nothing_selected" %>
+  <br/>
+  <%= link_to t(".catalog_entries"), admin_catalog_type_catalog_entries_url(@catalog_type), :class => "nothing_selected" %>
 
   <%= render :partial => "/shared/admin/form_actions",
              :locals => {
