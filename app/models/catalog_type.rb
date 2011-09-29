@@ -9,5 +9,9 @@ class CatalogType < ActiveRecord::Base
 
   # call to gems included in refinery.
   has_friendly_id :name, :use_slug => true
+
+  def title
+    name
+  end
 end
 
