@@ -1,11 +1,9 @@
 <li class='clearfix' id="<%= dom_id(list) -%>">
   <div class='clearfix'>
     <span class='actions'>
-      <%= link_to refinery_icon_tag('application_go.png'), type_url(list), :target => "_blank",
-                 :title => t('.view_live') %>
-      <%= link_to refinery_icon_tag('application_edit.png'), edit_admin_attribute_type_path(list),
+      <%= link_to refinery_icon_tag('application_edit.png'), edit_admin_catalog_type_entry_attribute_type_path(@catalog_type, list),
                  :title => t('.edit_this_entry') %>
-      <%= link_to refinery_icon_tag('delete.png'), admin_attribute_type_path(list),
+      <%= link_to refinery_icon_tag('delete.png'), admin_catalog_type_entry_attribute_type_path(@catalog_type, list),
                  :class => "cancel confirm-delete",
                  :title => t('.confirm_delete_entry_title'),
                  :confirm => t('shared.admin.delete.message', :title => list.name),

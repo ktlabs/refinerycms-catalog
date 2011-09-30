@@ -21,12 +21,19 @@
     <%= f.check_box :active, :class => "" %>
   </div>
 
-  <%= link_to t(".attribute_type_values"), admin_catalog_type_entry_attribute_type_entry_attribute_type_values_url(@catalog_type, @entry_attribute_type), :class => "nothing_selected" %>
+  <% new_record = @entry_attribute_type.new_record? %>
+  <% unless new_record %>
+    <%= link_to t(".attribute_type_values"), admin_catalog_type_entry_attribute_type_entry_attribute_type_values_url(@catalog_type, @entry_attribute_type), :class => "nothing_selected" %>
+  <% end %>
 
-  <%= render :partial => "/shared/admin/form_actions",
+  <%= render :partial => "admin/form_actions",
              :locals => {
                :f => f,
-               :continue_editing => true
+               :continue_editing => true,
+               :path_prefix => 'catalog_type_',
+               :cancel_url => admin_catalog_type_entry_attribute_types_url(@catalog_type),
+               :delete_url => new_record ? '' : admin_catalog_type_entry_attribute_type_path(@catalog_type, @entry_attribute_type),
+               :hide_delete => new_record
              } -%>
 
 <% end %>

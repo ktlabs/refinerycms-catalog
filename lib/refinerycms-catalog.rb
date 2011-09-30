@@ -21,7 +21,7 @@ module Refinery
         Refinery::Plugin.register do |plugin|
           plugin.name = "catalog"
           plugin.version = ::Refinery::Catalog.version
-          plugin.menu_match = /admin\/catalog(_entries)?/
+          plugin.menu_match = /admin\/[(catalog(_entries)?)|(types)|(values)]/
           plugin.activity = {
             :class => CatalogEntry
           }
