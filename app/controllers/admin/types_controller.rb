@@ -13,7 +13,7 @@ class Admin::TypesController < Admin::BaseController
       @catalog_type.catalog_entries.each do |entry|
         entry_attribute = entry.entry_attributes.build(:catalog_type => @catalog_type,
                                                        :entry_attribute_type => @entry_attribute_type,
-                                                       :entry_attribute_type_value => EntryAttributeTypeValue.empty_value)
+                                                       :entry_attribute_type_value => EntryAttributeTypeValue.empty_value(@entry_attribute_type))
         entry_attribute.save
       end
 

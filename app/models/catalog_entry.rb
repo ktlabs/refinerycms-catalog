@@ -1,4 +1,7 @@
 class CatalogEntry < ActiveRecord::Base
+
+  before_destroy :destroy_nested_resources
+
   belongs_to :title_image, :class_name => 'Image'
   belongs_to :catalog_type
   has_many :entry_attributes
@@ -35,6 +38,14 @@ class CatalogEntry < ActiveRecord::Base
   end
 
   alias_attribute :content, :body
+
+  private
+
+  def destroy_nested_resources
+    entry_attributes.each do |entry|
+      entry.destroy
+    end
+  end
 
 end
 

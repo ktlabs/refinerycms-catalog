@@ -8,10 +8,15 @@ class EntryAttributeTypeValue < ActiveRecord::Base
   has_many :entry_attributes
 
   validates :value, :presence => true
-  validates :value, :uniqueness => true
 
-  def self.empty_value
-    EntryAttributeTypeValue.find_by_value("empty")
+  def self.empty_value(entry_attribute_type)
+    EntryAttributeTypeValue.where(:value => "empty", :entry_attribute_type_id => entry_attribute_type.id).first
+  end
+
+  def self.destroy_empty(entry_attribute_type)
+    empty_value = self.empty_value(entry_attribute_type)
+    @force_empty_value_destroy = true
+    empty_value.destroy
   end
 
   protected
@@ -24,16 +29,18 @@ class EntryAttributeTypeValue < ActiveRecord::Base
   end
 
   def check_empty_value_destroy
-    if self.value == "empty"
+    if !@force_empty_value_destroy && self.value == "empty"
       self.errors.add("entry_attribute_type_value", ", could not delete 'empty' value")
       return false
     end
   end
 
   def replace_destroyed_value_by_empty
-    entry_attributes.each do |attribute|
-      attribute.entry_attribute_type_value = EntryAttributeTypeValue.empty_value
-      attribute.save
+    unless self.value == "empty"
+      entry_attributes.each do |attribute|
+        attribute.entry_attribute_type_value = EntryAttributeTypeValue.empty_value
+        attribute.save
+      end
     end
   end
 end

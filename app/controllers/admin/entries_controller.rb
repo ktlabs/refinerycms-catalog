@@ -16,6 +16,13 @@ class Admin::EntriesController < Admin::BaseController
   def create
     @catalog_entry = @catalog_type.catalog_entries.build(params[:catalog_entry])
     if @catalog_entry.save
+      @catalog_type.entry_attribute_types.each do |attribute_type|
+        entry_attribute = @catalog_entry.entry_attributes.build(:catalog_type => @catalog_type,
+                                              :entry_attribute_type => attribute_type,
+                                              :entry_attribute_type_value => EntryAttributeTypeValue.empty_value(attribute_type))
+        entry_attribute.save
+      end
+
       flash[:notice] = t('flash.created.male', :object => CatalogEntry.human_name)
       redirect_to :action => 'index'
     else
