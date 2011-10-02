@@ -76,12 +76,19 @@
     </div>
   <% end %>
 
-  <%= link_to t(".entry_atributes"), admin_catalog_type_catalog_entry_entry_attributes_url(@catalog_type, @catalog_entry), :class => "nothing_selected" %>
+  <% new_record = @catalog_entry.new_record? %>
+  <br/>
+  <% unless new_record %>
+    <%= link_to t(".entry_atributes"), admin_catalog_type_catalog_entry_entry_attributes_url(@catalog_type, @catalog_entry), :class => "nothing_selected" %>
+  <% end %>
 
-  <%= render :partial => "/shared/admin/form_actions",
+  <%= render :partial => "admin/form_actions",
              :locals => {
                :f => f,
-               :continue_editing => true
+               :continue_editing => true,
+               :cancel_url => admin_catalog_type_catalog_entries_url(@catalog_type),
+               :delete_url => new_record ? '' : admin_catalog_type_catalog_entry_path(@catalog_type, @catalog_entry),
+               :hide_delete => new_record
              } -%>
 
 <% end %>

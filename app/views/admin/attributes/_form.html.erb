@@ -13,18 +13,22 @@
                :include_object_name => true
              }  %>
   <div id='catalog_body' class='field clearfix'>
-    <%= f.required_label t('.attribute_type') %>
-    <%= f.select :entry_attribute_type_id %>
+    <%= f.label t('.attribute_type') %>
+    <%= f.label @entry_attribute.entry_attribute_type.name %>
   </div>
   <div id='catalog_body' class='field clearfix'>
     <%= f.required_label t('.value') %>
-    <%= f.select :entry_attribute_type_value_id %>
+    <%= f.select :entry_attribute_type_value_id, @entry_attribute.entry_attribute_type.entry_attribute_type_values.collect { |x| [x.value, x.id] } %>
   </div>
 
-  <%= render :partial => "/shared/admin/form_actions",
+  <% new_record = @entry_attribute.new_record? %>
+  <%= render :partial => "admin/form_actions",
              :locals => {
                :f => f,
-               :continue_editing => true
+               :continue_editing => true,
+               :cancel_url => admin_catalog_type_catalog_entry_entry_attributes_url(@catalog_type, @catalog_entry),
+               :delete_url => new_record ? '' : admin_catalog_type_catalog_entry_entry_attribute_path(@catalog_type, @catalog_entry, @entry_attribute),
+               :hide_delete => new_record
              } -%>
 
 <% end %>

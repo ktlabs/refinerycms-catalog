@@ -2,7 +2,7 @@
   <% if searching? %>
     <h2><%= t('shared.admin.search.results_for', :query => params[:search]) %></h2>
   <% end %>
-  <% if @catalog_types.any? %>
+  <% unless @catalog_types.nil? %>
     <%= render :partial => 'list', :collection => @catalog_types %>
   <% else %>
     <p>

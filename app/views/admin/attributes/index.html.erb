@@ -2,7 +2,7 @@
   <% if searching? %>
     <h2><%= t('shared.admin.search.results_for', :query => params[:search]) %></h2>
   <% end %>
-  <% if @catalog_types.any? %>
+  <% unless @entry_attributes.nil? %>
     <%= render :partial => 'list', :collection => @entry_attributes %>
   <% else %>
     <p>
@@ -20,7 +20,7 @@
   <ul>
     <li>
       <%= render :partial => "/shared/admin/search",
-                 :locals => {:url => admin_entry_attributes_url} %>
+                 :locals => {:url => admin_catalog_type_catalog_entry_entry_attributes_url(@catalog_type, @catalog_entry) } %>
     </li>
   </ul>
 </div>

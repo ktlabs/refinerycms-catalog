@@ -14,10 +14,10 @@ class Admin::EntriesController < Admin::BaseController
   end
 
   def create
-    @catalog_entry = @catalog_type.catalog_entries.build(params[:catalog_entries])
+    @catalog_entry = @catalog_type.catalog_entries.build(params[:catalog_entry])
     if @catalog_entry.save
-      flash[:notice] = f('flash.created.male', :object => CatalogEntry.human_name)
-      render :action => 'index'
+      flash[:notice] = t('flash.created.male', :object => CatalogEntry.human_name)
+      redirect_to :action => 'index'
     else
       render :action => 'new'
     end
@@ -38,7 +38,7 @@ class Admin::EntriesController < Admin::BaseController
   def update
     if @catalog_entry.update_attributes(params[:catalog_entry])
       flash[:notice] = t('flash.updated.male', :object => CatalogEntry.human_name)
-      render :action => 'index'
+      redirect_to :action => 'index'
     else
       render :action => 'edit'
     end
@@ -47,7 +47,7 @@ class Admin::EntriesController < Admin::BaseController
   def destroy
     @catalog_entry.destroy
     flash[:notice] = t('flash.destroyed.male', :object => CatalogEntry.human_name)
-    redirect_to [:admin, @catalog_type]
+    redirect_to :action => 'index'
   end
 
   protected
@@ -57,7 +57,7 @@ class Admin::EntriesController < Admin::BaseController
   end
 
   def load_catalog_entry
-    @catalog_entry = CatalogEntry.find_by_name(params[:id])
+    @catalog_entry = CatalogEntry.find(params[:id])
   end
 end
 

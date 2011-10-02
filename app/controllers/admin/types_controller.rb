@@ -10,6 +10,13 @@ class Admin::TypesController < Admin::BaseController
   def create
     @entry_attribute_type = @catalog_type.entry_attribute_types.build(params[:entry_attribute_type])
     if @entry_attribute_type.save
+      @catalog_type.catalog_entries.each do |entry|
+        entry_attribute = entry.entry_attributes.build(:catalog_type => @catalog_type,
+                                                       :entry_attribute_type => @entry_attribute_type,
+                                                       :entry_attribute_type_value => EntryAttributeTypeValue.empty_value)
+        entry_attribute.save
+      end
+
       flash[:notice] = t('flash.created.male', :object => EntryAttributeType.human_name)
       redirect_to :action => 'index'
     else
@@ -32,7 +39,7 @@ class Admin::TypesController < Admin::BaseController
   def update
     if @entry_attribute_type.update_attributes(params[:entry_attribute_type])
       flash[:notice] = t('flash.updated.male', :object => EntryAttributeType.human_name)
-      render :action => 'index'
+      redirect_to :action => 'index'
     else
       render :action => 'edit'
     end
@@ -41,7 +48,7 @@ class Admin::TypesController < Admin::BaseController
   def destroy
     @entry_attribute_type.destroy
     flash[:notice] = t('flash.destroyed.male', :object => EntryAttributeType.human_name)
-    redirect_to [:admin, @catalog_type]
+    redirect_to :action => 'index'
   end
 
   protected

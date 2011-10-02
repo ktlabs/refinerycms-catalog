@@ -2,7 +2,7 @@
   <% if searching? %>
     <h2><%= t('shared.admin.search.results_for', :query => params[:search]) %></h2>
   <% end %>
-  <% if @catalog_entries.any? %>
+  <% unless @catalog_entries.nil? %>
     <%= render :partial => 'sortable_list' %>
   <% else %>
     <p>
@@ -20,10 +20,10 @@
   <ul>
     <li>
       <%= render :partial => "/shared/admin/search",
-                 :locals => {:url => admin_catalog_entries_url} %>
+                 :locals => {:url => admin_catalog_type_catalog_entries_url(@catalog_type)} %>
     </li>
     <li>
-      <%= link_to t('.create_new_catalog_entry'), new_admin_catalog_entry_url,
+      <%= link_to t('.create_new_catalog_entry'), new_admin_catalog_type_catalog_entry_url(@catalog_type),
                   :class => "add_icon" %>
     </li>
    <% if @catalog_entries.many? and !searching? %>

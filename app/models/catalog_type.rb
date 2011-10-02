@@ -1,6 +1,6 @@
 class CatalogType < ActiveRecord::Base
 
-  has_many :catalog_entry
+  has_many :catalog_entries
   has_many :entry_attributes
   has_many :entry_attribute_types
 
