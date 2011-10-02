@@ -4,6 +4,7 @@ class CatalogEntry < ActiveRecord::Base
   has_many :entry_attributes
 
   validates :title, :presence => true
+  validates :title, :uniqueness => true
 
   # call to gems included in refinery.
   #has_friendly_id :title, :use_slug => true
