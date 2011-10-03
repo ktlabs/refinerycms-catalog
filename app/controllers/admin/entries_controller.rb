@@ -23,7 +23,7 @@ class Admin::EntriesController < Admin::BaseController
         entry_attribute.save
       end
 
-      flash[:notice] = t('flash.created.male', :object => CatalogEntry.human_name)
+      flash[:notice] = t('flash.created.male', :name => CatalogEntry.human_name)
       redirect_to :action => 'index'
     else
       render :action => 'new'
@@ -44,7 +44,7 @@ class Admin::EntriesController < Admin::BaseController
 
   def update
     if @catalog_entry.update_attributes(params[:catalog_entry])
-      flash[:notice] = t('flash.updated.male', :object => CatalogEntry.human_name)
+      flash[:notice] = t('flash.updated.male', :name => CatalogEntry.human_name)
       redirect_to :action => 'index'
     else
       render :action => 'edit'
@@ -53,7 +53,7 @@ class Admin::EntriesController < Admin::BaseController
 
   def destroy
     @catalog_entry.destroy
-    flash[:notice] = t('flash.destroyed.male', :object => CatalogEntry.human_name)
+    flash[:notice] = t('flash.destroyed.male', :name => CatalogEntry.human_name)
     redirect_to :action => 'index'
   end
 

@@ -79,7 +79,7 @@
   <% new_record = @catalog_entry.new_record? %>
   <br/>
   <% unless new_record %>
-    <%= link_to t(".entry_atributes"), admin_catalog_type_catalog_entry_entry_attributes_url(@catalog_type, @catalog_entry), :class => "nothing_selected" %>
+    <%= link_to t(".entry_attributes"), admin_catalog_type_catalog_entry_entry_attributes_url(@catalog_type, @catalog_entry), :class => "nothing_selected" %>
   <% end %>
 
   <%= render :partial => "admin/form_actions",

@@ -10,7 +10,7 @@ class Admin::ValuesController < Admin::BaseController
   def create
     @entry_attribute_type_value = @entry_attribute_type.entry_attribute_type_values.build(params[:entry_attribute_type_value])
     if @entry_attribute_type_value.save
-      flash[:notice] = t('flash.created.male', :object => EntryAttributeTypeValue.human_name)
+      flash[:notice] = t('flash.created.male', :name => EntryAttributeTypeValue.human_name)
       redirect_to :action => 'index'
     else
       render :action => 'new'
@@ -31,7 +31,7 @@ class Admin::ValuesController < Admin::BaseController
 
   def update
     if @entry_attribute_type_value.update_attributes(params[:entry_attribute_type_value])
-      flash[:notice] = t('flash.updated.male', :object => EntryAttributeTypeValue.human_name)
+      flash[:notice] = t('flash.updated.male', :name => EntryAttributeTypeValue.human_name)
       redirect_to :action => 'index'
     else
       render :action => 'edit'
@@ -40,7 +40,7 @@ class Admin::ValuesController < Admin::BaseController
 
   def destroy
     if @entry_attribute_type_value.destroy
-      flash[:notice] = t('flash.destroyed.male', :object => EntryAttributeTypeValue.human_name)
+      flash[:notice] = t('flash.destroyed.male', :name => EntryAttributeTypeValue.human_name)
       redirect_to :action => 'index'
     else
       render :action => 'edit'

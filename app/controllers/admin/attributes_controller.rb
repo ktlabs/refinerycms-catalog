@@ -10,7 +10,7 @@ class Admin::AttributesController < Admin::BaseController
   def create
     @entry_attribute = @catalog_entry.entry_attributes.build(params[:entry_attribute])
     if @entry_attribute.save
-      flash[:notice] = t('flash.created.male', :object => EntryAttribute.human_name)
+      flash[:notice] = t('flash.created.male', :name => EntryAttribute.human_name)
       redirect_to :action => 'index'
     else
       render :action => 'new'
@@ -31,7 +31,7 @@ class Admin::AttributesController < Admin::BaseController
 
   def update
     if @entry_attribute.update_attributes(params[:entry_attribute])
-      flash[:notice] = t('flash.updated.male', :object => EntryAttribute.human_name)
+      flash[:notice] = t('flash.updated.male', :name => EntryAttribute.human_name)
       redirect_to :action => 'index'
     else
       render :action => 'edit'
@@ -40,7 +40,7 @@ class Admin::AttributesController < Admin::BaseController
 
   def destroy
     @entry_attribute.destroy
-    flash[:notice] = t('flash.destroyed.male', :object => EntryAttribute.human_name)
+    flash[:notice] = t('flash.destroyed.male', :name => EntryAttribute.human_name)
     redirect_to :action => 'index'
   end
 

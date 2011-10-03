@@ -12,6 +12,7 @@ en:
       index:
         no_catalog_types_yet: 'There is no catalogs yet. Click "Add new Catalog" to add your first catalog.'
         create_new_catalog_entry: "Add New Catalog"
+        empty_values: Entries with empty attribute values
       list:
         view_live: "View this entry live <br/><em>(opens in a new window)</em>"
         edit_this_entry: "Edit this entry"
@@ -69,4 +70,15 @@ en:
       list:
         view_live: "View this entry live <br/><em>(opens in a new window)</em>"
         edit_this_entry: "Edit this entry"
+    form_actions:
+      save: Save
+      cancel: Cancel
+      delete: Delete
+  flash:
+    created:
+      male: "Created %{name}"
+    updated:
+      male: "Updated %{name}"
+    deleted:
+      male: "Deleted %{name}"
 

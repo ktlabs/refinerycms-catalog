@@ -12,6 +12,7 @@ en:
       index:
         no_catalog_types_yet: 'Ещё нет ни одного каталога. Нажмите "Добавить новый каталог" что бы добавить ваш первый каталог.'
         create_new_catalog_entry: "Добавить новый каталог"
+        empty_values: Записи с пустыми значениями атрибутов
       list:
         view_live: "Просмотреть записи <br/><em>(открыть в новом окне)</em>"
         edit_this_entry: "Редактировать эту запись"
@@ -69,4 +70,15 @@ en:
       list:
         view_live: "Просмотреть записи <br/><em>(открыть в новом окне)</em>"
         edit_this_entry: "Редактировать эту запись"
+    form_actions:
+      save: Сохранить
+      cancel: Отмена
+      delete: Удалить
+  flash:
+    created:
+      male: "Создан %{name}"
+    updated:
+      male: "Изменён %{name}"
+    deleted:
+      male: "Удалён %{name}"
 
