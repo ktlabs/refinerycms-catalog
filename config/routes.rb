@@ -35,6 +35,9 @@ Refinery::Application.routes.draw do
           post :update_positions
         end
       end
+      collection do
+        get :empty_values
+      end
     end
   end
 

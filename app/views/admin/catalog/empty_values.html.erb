@@ -1,0 +1,18 @@
+<ul id='sortable_list'>
+<% puts @attributes_with_empty_values.inspect %>
+  <% @attributes_with_empty_values.each do |attribute| %>
+    <li class='clearfix'>
+      <div class='clearfix'>
+        <span class='actions'>
+          <%= link_to refinery_icon_tag('application_edit.png'),
+                      edit_admin_catalog_type_catalog_entry_entry_attribute_path(attribute.catalog_type,
+                                                                                      attribute.catalog_entry,
+                                                                                      attribute),
+                     :title => t('.edit_this_entry') %>
+        </span>
+        <%=h "#{attribute.catalog_type.title} - #{attribute.catalog_entry.title} - #{attribute.entry_attribute_type.name}" %>
+      </div>
+    </li>
+  <% end %>
+</ul>
+
