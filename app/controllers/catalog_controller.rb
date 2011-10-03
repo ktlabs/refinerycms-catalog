@@ -41,6 +41,10 @@ class CatalogController < ApplicationController
 
 protected
 
+  def entries_by_catalog_type(catalog_name)
+    CatalogType.find_by_name(catalog_name).catalog_entries
+  end
+
   def multi_level
     @catalog_entries = @master_entry.children
     @catalog_entry = if params[:catalog_id]
