@@ -25,7 +25,7 @@ Gem::Specification.new do |s|
     'app/controllers/admin/catalog_controller.rb',
     'app/controllers/admin/values_controller.rb',
     'app/models',
-    'app/models/entry_attributes.rb',
+    'app/models/entry_attribute.rb',
     'app/models/catalog_entry.rb',
     'app/models/entry_attribute_type_value.rb',
     'app/models/catalog_type.rb',
