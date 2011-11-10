@@ -1,4 +1,5 @@
 <% content_for :javascript_libraries, jquery_include_tags(:jquery_ui => true) %>
+<% content_for :after_javascript_libraries, javascript_include_tag('catalog.index.js') %>
 
 <% content_for :body_content_title do -%>
   Catalogs
