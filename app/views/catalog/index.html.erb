@@ -1,14 +1,21 @@
+<% content_for :head_libraries, jquery_include_tags(:jquery_ui => false) %>
+<% content_for :head, javascript_include_tag('application') %> 
+
 <% content_for :body_content_title do -%>
   Catalogs
 <% end -%>
 
 <% content_for :body_content_left do -%>
-  <% @catalog_entries.each do | catalog | -%>
+  <!--<% @catalog_entries.each do | catalog | -%>
     <span>
       <%= link_to raw("#{image_fu catalog.title_image, '200x200' unless catalog.title_image.nil?} #{catalog.title}"),
                   catalog_path(catalog) %>
     </span>
-  <% end -%>
+  <% end -%> -->
+  <div>
+    <div><script>alert($.tabs);</script></div>
+  </div>
+  
 <% end -%>
 
 <%= render :partial => '/shared/content_page' -%>
