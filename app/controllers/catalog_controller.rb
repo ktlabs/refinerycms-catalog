@@ -3,13 +3,7 @@ class CatalogController < ApplicationController
   before_filter :load_page, :only => [:index, :show, :empty]
 
   def index
-    if RefinerySetting.find_or_set(:catalog_has_no_index, true)
-      if (first_entry = CatalogEntry.where(:parent_id => nil).first).present?
-        redirect_to catalog_url(first_entry)
-      end
-    else
-      @catalog_entries = CatalogEntry.all
-    end
+    @catalog_entries = CatalogEntry.all
   end
 
   def show
@@ -37,6 +31,16 @@ class CatalogController < ApplicationController
     end
 
     render :partial => "main_image", :layout => false if request.xhr?
+  end
+
+  def filters
+    result = {}
+
+    type_names = ActiveSupport::JSON.decode(params[:attribute_types])
+    keys = EntryAttributeType.where(:name => type_names)
+    keys.each do |key|
+      result["by_#{key.name}"] = EntryAttributeTypeValue.where(:entry_attribute => key).map do |v| {:name => v.value} end
+    end
   end
 
 protected

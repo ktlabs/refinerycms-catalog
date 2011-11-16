@@ -1,17 +1,14 @@
 <% content_for :javascript_libraries, jquery_include_tags(:jquery_ui => true) %>
 <% content_for :after_javascript_libraries, javascript_include_tag('catalog.index.js') %>
+<% content_for :after_javascript_libraries, javascript_include_tag('underscore.js') %>
+<% content_for :after_javascript_libraries, javascript_include_tag('jquery.json-2.3.min.js') %>
+
 
 <% content_for :body_content_title do -%>
-  Catalogs
+  Каталог Тканей
 <% end -%>
 
 <% content_for :body_content_left do -%>
-  <!--<% @catalog_entries.each do | catalog | -%>
-    <span>
-      <%= link_to raw("#{image_fu catalog.title_image, '200x200' unless catalog.title_image.nil?} #{catalog.title}"),
-                  catalog_path(catalog) %>
-    </span>
-  <% end -%> -->
   <div>
     <div id="filter-tabs">
 	<ul>
@@ -36,7 +33,6 @@
       
     </div>
   </div>
-  
 <% end -%>
 
 <%= render :partial => '/shared/content_page' -%>

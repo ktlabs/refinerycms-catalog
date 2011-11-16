@@ -24,6 +24,9 @@ Refinery::Application.routes.draw do
 
   match '/catalog/:id', :as => 'catalog', :to => 'catalog#show'
 
+  match '/catalog/filters', :as => 'catalog', :to => 'catalog#filters', :method => "GET"
+  match '/catalog/filters', :as => 'catalog', :to => 'catalog#search', :method => "POST"
+
   scope(:path => 'refinery', :as => 'admin', :module => 'admin') do
     resources :catalog, :as => :catalog_types do
       resources :types, :as => :entry_attribute_types do
