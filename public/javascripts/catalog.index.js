@@ -59,5 +59,5 @@ var load_initial_catalog = function() {
   fill_results_list_with(all);
 };
 
-load_initial_catalog();
-//prepare_filter_chooser();
+//load_initial_catalog();
+prepare_filter_chooser();
