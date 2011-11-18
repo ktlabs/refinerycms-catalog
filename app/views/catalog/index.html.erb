@@ -1,7 +1,8 @@
 <% content_for :javascript_libraries, jquery_include_tags(:jquery_ui => true) %>
-<% content_for :after_javascript_libraries, javascript_include_tag('catalog.index.js') %>
 <% content_for :after_javascript_libraries, javascript_include_tag('underscore.js') %>
 <% content_for :after_javascript_libraries, javascript_include_tag('jquery.json-2.3.min.js') %>
+<% content_for :after_javascript_libraries, javascript_include_tag('catalog.index.js') %>
+<% content_for :after_javascript_libraries, stylesheet_link_tag("jquery-ui") %>
 
 
 <% content_for :body_content_title do -%>
@@ -29,9 +30,9 @@
     <div id="filter-applied">
       
     </div>
-    <div id="filter-results">
+    <ul id="filter-results">
       
-    </div>
+    </ul>
   </div>
 <% end -%>
 

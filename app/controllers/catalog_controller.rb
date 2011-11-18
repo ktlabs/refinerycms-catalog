@@ -39,8 +39,22 @@ class CatalogController < ApplicationController
     type_names = ActiveSupport::JSON.decode(params[:attribute_types])
     keys = EntryAttributeType.where(:name => type_names)
     keys.each do |key|
-      result["by_#{key.name}"] = EntryAttributeTypeValue.where(:entry_attribute => key).map do |v| {:name => v.value} end
+      result["by_#{key.name}"] = EntryAttributeTypeValue.where(:entry_attribute_type_id => key.id).map do
+          |v| {:name => v.value, :id => v.id}
+        end
     end
+
+    render :json => result.to_json
+  end
+
+  def search
+    applied_filters = ActiveSupport::JSON.decode(params[:applied_filters])
+    puts applied_filters.to_yaml
+    attributes = EntryAttribute.where(:entry_attribute_type_value_id => applied_filters.map do
+        |x| x["id"]
+      end)
+    render :json => (attributes.map do |x| x.catalog_entry end).to_json(
+        :methods => [:color, :manufacturer, :composition])
   end
 
 protected

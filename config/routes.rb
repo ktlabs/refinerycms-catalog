@@ -3,6 +3,10 @@ require File.expand_path("../../lib/catalog.rb", __FILE__)
 Refinery::Application.routes.draw do
   match '/catalog', :as => 'catalog', :to => 'catalog#index'
 
+  match '/catalog/filters', :as => 'catalog', :to => 'catalog#filters', :via => "GET"
+  match '/catalog/filters', :as => 'catalog', :to => 'catalog#search', :via => "POST"
+
+
   # Make sure you restart your web server after changing the multi level setting.
   if ::Refinery::Catalog.multi_level?
     match "/catalog/:id/projects/:catalog_id/:image_id",
@@ -23,9 +27,6 @@ Refinery::Application.routes.draw do
   end
 
   match '/catalog/:id', :as => 'catalog', :to => 'catalog#show'
-
-  match '/catalog/filters', :as => 'catalog', :to => 'catalog#filters', :method => "GET"
-  match '/catalog/filters', :as => 'catalog', :to => 'catalog#search', :method => "POST"
 
   scope(:path => 'refinery', :as => 'admin', :module => 'admin') do
     resources :catalog, :as => :catalog_types do

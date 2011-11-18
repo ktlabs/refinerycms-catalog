@@ -39,6 +39,28 @@ class CatalogEntry < ActiveRecord::Base
 
   alias_attribute :content, :body
 
+  def color
+    self.attribute_value_by_name "color"
+  end
+
+  def manufacturer
+    self.attribute_value_by_name "manufacturer"
+  end
+
+  def composition
+    self.attribute_value_by_name "composition"
+  end
+
+  def attribute_value_by_name(name)
+    a = self.entry_attributes.find_all do |x| x.entry_attribute_type.name == name end
+
+    if a.first.nil?
+      return nil
+    else
+      return a.first.entry_attribute_type_value.value
+    end
+  end
+
   private
 
   def destroy_nested_resources
@@ -46,6 +68,9 @@ class CatalogEntry < ActiveRecord::Base
       entry.destroy
     end
   end
+
+
+
 
 end
 
