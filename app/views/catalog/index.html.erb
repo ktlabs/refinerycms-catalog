@@ -17,22 +17,30 @@
 		<li><a href="#tabs-color">Цвет</a></li>
 		<li><a href="#tabs-manufacturer">Производитель</a></li>
 	</ul>
-	<div id="tabs-composition">
-		
-	</div>
-	<div id="tabs-color">
-	      
-	</div>
-	<div id="tabs-manufacturer">
-	      
-	</div>
+	<div id="tabs-composition"></div>  <div id="tabs-color"></div>  <div id="tabs-manufacturer"></div>
     </div>
-    <div id="filter-applied">
-      
-    </div>
-    <ul id="filter-results">
-      
-    </ul>
+    <table id="filter-applied" style="background: lightgray; width: 100%;">
+      <thead><tr>
+        <td>Состав</td><td>Цвет</td><td>Производитель</td>
+      </tr></thead>
+      <tbody><tr>
+        <td><ul id="filter-applied-composition" style="list-style-type: none;">
+
+        </ul></td>
+        <td><ul id="filter-applied-color" style="list-style-type: none;">
+
+        </ul></td>
+        <td><ul id="filter-applied-manufacturer" style="list-style-type: none;">
+
+        </ul></td>
+      </tr></tbody>
+    </table>
+    <table id="filter-results" style="background: #e6e6fa; width: 100%;">
+      <thead><tr>
+         <td>Артикул</td><td>Наименование</td><td>Состав</td><td>Цвет</td><td>Производитель</td>
+      </tr></thead>
+      <tbody></tbody>
+    </table>
   </div>
 <% end -%>
 
