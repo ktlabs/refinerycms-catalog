@@ -68,48 +68,7 @@
 		</header>
 
 
-  <div>
-    <div id="filter-tabs">
-	<ul>
-		<li><a href="#tabs-composition">Состав</a></li>
-		<li><a href="#tabs-color">Цвет</a></li>
-		<li><a href="#tabs-manufacturer">Производитель</a></li>
-	</ul>
-	<div id="tabs-composition"></div>  <div id="tabs-color"></div>  <div id="tabs-manufacturer"></div>
-    </div>
-    <table id="filter-applied" style="background: lightgray; width: 100%;">
-      <thead><tr>
-        <td>Состав</td><td>Цвет</td><td>Производитель</td>
-      </tr></thead>
-      <tbody><tr>
-        <td><ul id="filter-applied-composition" style="list-style-type: none;">
-
-        </ul></td>
-        <td><ul id="filter-applied-color" style="list-style-type: none;">
-
-        </ul></td>
-        <td><ul id="filter-applied-manufacturer" style="list-style-type: none;">
-
-        </ul></td>
-      </tr></tbody>
-    </table>
-    <table id="filter-results" style="background: #e6e6fa; width: 100%;">
-      <thead><tr>
-         <td>Артикул</td><td>Наименование</td><td>Состав</td><td>Цвет</td><td>Производитель</td>
-      </tr></thead>
-      <tbody></tbody>
-    </table>
-  </div>
-<% end -%>
-
-<%= render :partial => '/shared/content_page' -%>
-
-<!DOCTYPE html>
-<html>
-
-	<body>
-
-		<div id="wrapper0">
+  <div id="wrapper0">
 			<div class="container">
 				<div class="article-wrapper">
 					<article class="filters">
@@ -315,5 +274,6 @@
 			<div class="hd-bottom"></div>
 
 		</div>
-	</body>
-</html>
+<% end -%>
+
+<%= render :partial => '/shared/content_page' -%>
