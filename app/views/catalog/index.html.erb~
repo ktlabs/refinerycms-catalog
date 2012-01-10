@@ -10,10 +10,6 @@
 <% content_for :after_javascript_libraries, javascript_include_tag('engine.js') %>
 
 
-
-<% content_for :body_content_left do -%>
-
-
   <div id="wrapper0">
 			<div class="container">
 				<div class="article-wrapper">
@@ -205,5 +201,3 @@
 
 		</div>
 <% end -%>
-
-<%= render :partial => '/shared/content_page' -%>
