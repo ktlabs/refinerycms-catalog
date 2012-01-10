@@ -8,18 +8,6 @@
 <% content_for :after_javascript_libraries, stylesheet_link_tag("blueprint/print.css") %>
 <% content_for :after_javascript_libraries, javascript_include_tag('html5.js') %>
 <% content_for :after_javascript_libraries, javascript_include_tag('engine.js') %>
-<% content_for :after_javascript_libraries do %>
-<!--[if lt IE 9]>
-    <%= javascript_include_tag("html5.js") %>
-<![endif]-->
-
-<!--[if lt IE 8]>
-    <%= javascript_include_tag("blueprint/ie.css") %>
-<![endif]-->
-<% end %>
-
-
-<% content_for :body_content_left do -%>
 
 
   <div id="wrapper0">
@@ -213,5 +201,3 @@
 
 		</div>
 <% end -%>
-
-<%= render :partial => '/shared/content_page' -%>

@@ -8,63 +8,10 @@
 <% content_for :after_javascript_libraries, stylesheet_link_tag("blueprint/print.css") %>
 <% content_for :after_javascript_libraries, javascript_include_tag('html5.js') %>
 <% content_for :after_javascript_libraries, javascript_include_tag('engine.js') %>
-<% content_for :after_javascript_libraries do %>
-<!--[if lt IE 9]>
-    <%= javascript_include_tag("html5.js") %>
-<![endif]-->
 
-<!--[if lt IE 8]>
-    <%= javascript_include_tag("blueprint/ie.css") %>
-<![endif]-->
-<% end %>
 
 
 <% content_for :body_content_left do -%>
-        <header>
-			<div class="hd-line"></div>
-			<div class="hd-left">
-				<nav>
-					<ul>
-						<li><a href="javascript:;">Ткани</a></li>
-						<li><a href="javascript:;">Портьерный салон</a></li>
-						<li><a href="javascript:;">Мебель</a></li>
-
-						<li class="active">
-							<a href="javascript:;">О компании</a>
-							<ul>
-								<li><a href="javascript:;">Отзывы</a></li>
-								<li><a href="javascript:;">Магазины</a></li>
-							</ul>
-						</li>
-
-					</ul>
-				</nav>
-			</div>
-			<div class="hd-right">
-				<div class="search hd-search">
-					<form method="get" action="#">
-						<div class="search-left">
-							<input class="sr-text" type="text" name="w" placeholder="Поиск по сайту">
-						</div>
-
-						<div class="search-right">
-							<input type="sr-submit" class="submit" value="&nbsp;" />
-						</div>
-					</form>
-				</div>
-				<nav>
-					<ul>
-						<li><a href="javascript:;">Частозадаваемые вопросы</a></li>
-
-						<li><a href="javascript:;">Отзывы</a></li>
-						<li><a href="javascript:;">Магазины</a></li>
-					</ul>
-				</nav>
-			</div>
-			<div class="logo">
-				<a href="/"></a>
-			</div>
-		</header>
 
 
   <div id="wrapper0">
@@ -254,22 +201,6 @@
 					</article>
 				</div>
 				<div class="article-shadow"></div>
-			</div>
-			<div class="container">
-				<footer>
-					<div class="left ft-phones">
-						<p>
-							Тел. 8 (786) 655-45-23
-						</p>
-
-					</div>
-					<div class="right ft-address">
-						<p>
-							ул. Красных молдавских партизан, д. 23, кв. 42
-						</p>
-					</div>
-				</footer>
-			</div>
 			<div class="hd-bottom"></div>
 
 		</div>
