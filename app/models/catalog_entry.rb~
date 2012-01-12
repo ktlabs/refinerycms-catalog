@@ -67,7 +67,7 @@ class CatalogEntry < ActiveRecord::Base
     self.attribute_value_by_name "composition"
   end
 
-  def article
+  def atricle
     self.attribute_value_by_name "article"
   end
 

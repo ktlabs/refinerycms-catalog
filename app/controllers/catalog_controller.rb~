@@ -54,18 +54,18 @@ class CatalogController < ApplicationController
     applied_filters = params
 
     entries_by_composition = EntryAttribute.where(
-      :entry_attribute_type_value_id => array_from_hash(applied_filters[:composition]).map do
-          |x| x["id"]
+      :entry_attribute_type_value_id => applied_filters[:composition].map do
+          |x| x["id"].to_int
         end).map do |x| x.catalog_entry end
 
     entries_by_color = EntryAttribute.where(
-      :entry_attribute_type_value_id => array_from_hash(applied_filters[:color]).map do
-          |x| x["id"]
+      :entry_attribute_type_value_id => applied_filters[:color].map do
+          |x| x["id"].to_int
         end).map do |x| x.catalog_entry end
 
     entries_by_manufacturer = EntryAttribute.where(
-      :entry_attribute_type_value_id => array_from_hash(applied_filters[:manufacturer]).map do
-          |x| x["id"]
+      :entry_attribute_type_value_id => applied_filters[:manufacturer].map do
+          |x| x["id"].to_int
         end).map do |x| x.catalog_entry end
 
 

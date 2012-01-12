@@ -107,6 +107,22 @@
 									</tr>
 								</thead>
 								<tbody id="flt-table-outlet">
+									<tr>
+										<td>Артикул</td>
+										<td>Наименование</td>
+										<td>Состав</td>
+
+										<td>Цвет</td>
+										<td>Производитель</td>
+									</tr>
+									<tr>
+										<td>Артикул</td>
+										<td>Наименование</td>
+										<td>Состав</td>
+
+										<td>Цвет</td>
+										<td>Производитель</td>
+									</tr>
 
 								</tbody>
 							</table>
