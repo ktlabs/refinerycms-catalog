@@ -94,7 +94,7 @@ update_results_panel = function(data) {
 
     _.each(data, function(item) {
         item = item.catalog_entry;
-        $('#flt-table-outlet').html($('#flt-table-outlet').html +
+        $('#flt-table-outlet').html($('#flt-table-outlet').html() +
             '<tr>' +
                 '<td>' + ( item.article? item.article : 'Нет данных' ) + '</td>' +
                 '<td>' + ( item.title? item.title : 'Нет данных' ) + '</td>' +
